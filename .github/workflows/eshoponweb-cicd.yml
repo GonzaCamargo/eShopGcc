@@ -5,10 +5,10 @@ name: eShopOnWeb Build and Test
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: rg-az400-eshoponweb-NAME
+  RESOURCE-GROUP: rg-az400-eshoponweb-gcc
   LOCATION: westeurope
   TEMPLATE-FILE: .azure/bicep/webapp.bicep
-  SUBSCRIPTION-ID: YOUR-SUBS-ID
+  SUBSCRIPTION-ID: ac8014ec-4ca2-4abb-85fe-fdca19ef9df7
   WEBAPP-NAME: az400-webapp-NAME
 
 
@@ -38,7 +38,8 @@ jobs:
       with:
         name: .net-app
         path: ${{env.DOTNET_ROOT}}/myapp
-        
+
+    # aquí comienza el deployment continuo
     # upload the bicep template as artifacts for next job
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
